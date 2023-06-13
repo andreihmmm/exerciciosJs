@@ -69,6 +69,38 @@ function MaiorMenorMA(matriz) {
         }
     } console.log('menor: ' + menor)
 
-    matriz.reduce(getSum, 0);
-    return total +
+
+    var total = matriz.reduce(function (total, numero) {
+        return total + numero;
+
+    }, 0);
+    var media = total / quantidade
+
+    console.log('media: ' + media)
+}
+
+// 5)
+
+function contarElementos(matriz) {
+
+    var quantidade = matriz.length
+
+    var elementos = []
+    var frequencias = []
+
+    for (i = 0; i < quantidade; i++) {
+        if (!elementos.includes(matriz[i])) {
+            elementos.push(matriz[i])
+            frequencias[i] = 1
+        } else {
+            for (k = 0; k < elementos.length; k++) {
+                if (elementos[k] === matriz[i]) {
+                    frequencias[k] += 1
+                }
+            }
+        }
+    }
+    for (j = 0; j < elementos.length; j++) {
+        console.log(elementos[j] + ': ' + frequencias[j])
+    }
 }
